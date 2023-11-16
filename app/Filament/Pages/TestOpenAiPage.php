@@ -17,7 +17,6 @@ class TestOpenAiPage extends Page
             Actions\Action::make('Fetch Models')
                 ->action(function () {
 
-
                 })
         ];
     }
