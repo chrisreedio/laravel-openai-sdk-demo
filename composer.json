@@ -68,5 +68,11 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/home/chris/dev/packages/composer/laravel-openai-sdk"
+        }
+    ]
 }

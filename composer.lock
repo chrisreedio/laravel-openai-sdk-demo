@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c9adfdfad6b74cc2052f4db1e86aa0b",
+    "content-hash": "cd23710952ea91e42e55a8a8a55bf932",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -214,16 +214,10 @@
         {
             "name": "chrisreedio/laravel-openai-sdk",
             "version": "dev-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/chrisreedio/laravel-openai-sdk.git",
-                "reference": "7584d78d342f8c08a8216d98d2e17ec67b127d7e"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/chrisreedio/laravel-openai-sdk/zipball/7584d78d342f8c08a8216d98d2e17ec67b127d7e",
-                "reference": "7584d78d342f8c08a8216d98d2e17ec67b127d7e",
-                "shasum": ""
+                "type": "path",
+                "url": "/home/chris/dev/packages/composer/laravel-openai-sdk",
+                "reference": "7584d78d342f8c08a8216d98d2e17ec67b127d7e"
             },
             "require": {
                 "illuminate/contracts": "^10.0",
@@ -259,7 +253,44 @@
                     "ChrisReedIO\\OpenAI\\SDK\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "ChrisReedIO\\OpenAI\\SDK\\Tests\\": "tests/",
+                    "Workbench\\App\\": "workbench/app/"
+                }
+            },
+            "scripts": {
+                "post-autoload-dump": [
+                    "@composer run prepare"
+                ],
+                "clear": [
+                    "@php vendor/bin/testbench package:purge-laravel-openai-sdk --ansi"
+                ],
+                "prepare": [
+                    "@php vendor/bin/testbench package:discover --ansi"
+                ],
+                "build": [
+                    "@composer run prepare",
+                    "@php vendor/bin/testbench workbench:build --ansi"
+                ],
+                "start": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "@composer run build",
+                    "@php vendor/bin/testbench serve"
+                ],
+                "analyse": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "test": [
+                    "vendor/bin/pest"
+                ],
+                "test-coverage": [
+                    "vendor/bin/pest --coverage"
+                ],
+                "format": [
+                    "vendor/bin/pint"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -277,11 +308,9 @@
                 "laravel",
                 "laravel-openai-sdk"
             ],
-            "support": {
-                "issues": "https://github.com/chrisreedio/laravel-openai-sdk/issues",
-                "source": "https://github.com/chrisreedio/laravel-openai-sdk/tree/dev"
-            },
-            "time": "2023-11-16T04:19:04+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "danharrin/date-format-converter",
